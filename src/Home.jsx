@@ -4,7 +4,7 @@ function Home() {
     const [text, setText] = useState('')
     async function fetchIcons(e){
         e.preventDefault()
-        const data = await fetch(`${import.meta.env.VITE_FETCH_URL || "http://localhost:3000/"}/api/sickons`, {
+        const data = await fetch(`${import.meta.env.VITE_FETCH_URL || "http://localhost:3000/"}api/sickons`, {
         method : "POST",
         headers: {
             'Content-Type' : 'application/json'
