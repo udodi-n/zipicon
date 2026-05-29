@@ -9,7 +9,7 @@ function Home() {
         headers: {
             'Content-Type' : 'application/json'
         },
-        body : JSON.stringify({iconReq : text.replace(/\s/g, "").toSmallCaps()})
+        body : JSON.stringify({iconReq : text.replace(/\s/g, "").toLowerCase()})
     }) 
     const blob = await data.blob()
     const url = URL.createObjectURL(blob)
@@ -24,7 +24,7 @@ function Home() {
     return(
     <>
     <div className="font-[Geist] w-full h-fit flex flex-col">
-        <header className="w-full fixed h-12 border-b-1 border-[#cecece] flex items-center justify-between px-4">
+        <header className="w-full fixed h-12 border-b- bg-white border-[#cecece] flex items-center justify-between px-4">
             <img class="object-contain h-6" src="/zipicon_logo.png" alt="" />
             <ul className="flex gap-6 items-center">
                 <li><a href="https://x.com/itsudodi" className="text-[#cecece]">Built by Udodi</a></li>
@@ -39,7 +39,7 @@ function Home() {
                 <p>And designers too.</p>
             </div>
             <form className="flex w-full gap-3 justify-center " action="" onSubmit={fetchIcons}> 
-                <input placeholder="google, facebook, instagram" onChange={(e) => setText(e.target.value)} value={text} className="border focus:outline-none rounded-sm w-70 lg:w-90 px-2 border-[#cecece]" type="text" />
+                <input placeholder="google, facebook, instagram" onChange={(e) => setText(e.target.value)} value={text} className="border focus:outline-none rounded-sm w-65 lg:w-90 px-2 border-[#cecece]" type="text" />
                 <button className="border  px-4 py-2 rounded-sm" type="submit">
                 Zip</button> 
             </form> 
@@ -57,8 +57,7 @@ function Home() {
                 </ol>
             </div>
             </section>
-            <footer className="h-fit w-full flex justify-center items-center gap-2 text-sm text-[#cecece] py-4">
-       
+            <footer className="h-fit w-full flex flex-col justify-center items-center gap-2 text-sm text-[#cecece] py-4">
             <p className="">Made with Energy Drink Overdose by <a href="https://x.com/itsudodi" target="_blank" rel="noopener noreferrer" className="text-black underline">Udodi</a></p>
             <p>Star on <a href="https://github.com/udodi-n/zipicon" target="_blank" rel="noopener noreferrer" className="text-black underline">GitHub</a></p>
             </footer>
