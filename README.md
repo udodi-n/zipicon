@@ -1,4 +1,4 @@
-# Zip.Icons
+# Zip.Icon
 
 A ocial media icons downloader. Type the icons you want, hit download, get a zip.
 
