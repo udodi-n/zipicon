@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { nanoid } from 'nanoid'
 
 function Home() {
     const [text, setText] = useState('')
@@ -11,12 +12,13 @@ function Home() {
         },
         body : JSON.stringify({iconReq : text.replace(/\s/g, "").toLowerCase()})
     }) 
+    const id = nanoid(3)
     const blob = await data.blob()
     const url = URL.createObjectURL(blob)
 
     const a = document.createElement('a')
     a.href = url
-    a.download = 'icons.zip'
+    a.download = `zipicons_${id}.zip`
     a.click()
 
     URL.revokeObjectURL(url)
