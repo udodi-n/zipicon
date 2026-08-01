@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+svg {
+  width: 100%;
+  height: 100%;
+  display: block; /* Removes inline bottom whitespace */
+}
+
+.svg-invert {
+  filter: invert(1);
+}
