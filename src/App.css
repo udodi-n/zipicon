@@ -6,6 +6,57 @@ svg {
   display: block; /* Removes inline bottom whitespace */
 }
 
+@keyframes fadeOut {
+  0% {opacity: 1; transform: scale(100%);
+}
+  100% {opacity: 0; transform: scale(0%);
+}
+}
+
+:root {
+  timeline-scope: --heroTimeline;
+}
+#hero {
+  view-timeline-name: --heroTimeline;
+  view-timeline-axis: block;
+}
+
+@keyframes fadeOutCard {
+  0% {opacity: 0; transform: scale(0%);
+}
+  100% {opacity: 1; transform: scale(100%);
+}
+}
+
+@keyframes springUp {
+  0% {
+    transform: scale(0%);
+  }
+  100% {
+    transform: scale(100%);
+  }
+}
+
+.dropdown-combo {
+  animation:
+    springUp 0.4s ease-in forwards,
+    fadeOut linear forwards;
+  animation-timeline: none, scroll(root);
+  animation-range: normal, 0% 5%;
+}
+.card-element {
+  animation: fadeOutCard linear forwards;
+  animation-timeline: --heroTimeline;
+  animation-range: exit 0% exit 40%;
+}
 .svg-invert {
   filter: invert(1);
+}
+
+.noscroll {
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
 }
