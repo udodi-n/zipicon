@@ -110,7 +110,7 @@
                 <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
             </svg>
             </div>
-            <p className="text-white">Star on GitHub</p>
+            <p className="text-white"><a href="https://github.com/udodi-n/zipicon" target="_blank" rel="noopener noreferrer">Star on GitHub</a></p>
         </div>
         <div className="h-4/5 px-5 w-45 bg-[#E73F1E]  rounded-full flex justify-center gap-4 items-center">
             {/* div wrapper */}
@@ -123,7 +123,7 @@
                 <path d="M10.4883 14.651L15.25 21H22.25L14.3917 10.5223L20.9308 3H18.2808L13.1643 8.88578L8.75 3H1.75L9.26086 13.0145L2.31915 21H4.96917L10.4883 14.651ZM16.25 19L5.75 5H7.75L18.25 19H16.25Z" />
             </svg>
             </div>
-            <p className="text-white">Follow on X</p>
+            <p className="text-white"><a href="https://x.com/itsudodi" target="_blank" rel="noopener noreferrer">Follow on X</a></p>
         </div>
         </div>
     </div>
@@ -208,16 +208,17 @@
     })}
     </div>
     </section>
-    <div  style={{ boxShadow: "0px 3px 5px #0000001e" }} className= {`bg-white border-1 border-[#cccccc] rounded-2xl max-h-50 lg:h-60 bottom-0 right-0 mr-5 mb-5 overflow-hidden fixed card-element ${selectState ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-0 pointer-events-none'}`}>
+    <div  style={{ boxShadow: "0px 3px 5px #0000001e" }} className= {`bg-white border-1 border-[#cccccc] rounded-2xl max-h-55 h-fit max-w-90 w-80 bottom-0 right-0 mr-5 mb-5 overflow-hidden fixed card-element ${selectState ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-0 pointer-events-none'}`}>
     <div className="flex flex-col h-full w-full">
         <div id="header" className="h-5 bg-[#E73F1E] w-full flex justify-end items-center gap-2 px-4">
             <div onClick={() => setSelectState(false)} className="h-1 w-5 bg-white"></div>
         </div>
-        <div id="rest" className=" flex flex-1 flex-col h-full">
-            <div className="flex py-4 h-full w-full" id="top">
-                <div className="left p-10 " dangerouslySetInnerHTML={{ __html: selectedIcon }}>
+            <div className="flex  justify-between flex-1 w-full items-center" id="top">
+                <div className="left w-1/2 h-full flex justify-center items-center p-4">
+                    <div className="aspect-square h-8" dangerouslySetInnerHTML={{ __html: selectedIcon }}>
+                    </div>
                 </div>
-                <div className="right  flex flex-col justify-center h-full w-full">
+                <div className="right py-4 flex flex-col justify-center h-full ">
                     <div>
                         <p className="font-bold">Name:</p>
                         <p className="font-light">{selectedName}</p>
@@ -235,7 +236,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
     </div>
     </div>
