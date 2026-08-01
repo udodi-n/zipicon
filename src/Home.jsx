@@ -15,7 +15,7 @@
     e.preventDefault();
     const data = axios.get(`${import.meta.env.VITE_FETCH_URL || "http://localhost:3000/"}search`, {
     params: {
-        query: text,
+        query: text.toLowerCase().replaceAll(' ', ''),
     },
     })
     .then((res) => {
@@ -54,8 +54,6 @@
 
     useEffect(() => {
     function displayIcons(){
-    const cont = JSON.parse(localStorage.getItem("container"))
-    setContainer(cont)
     console.log('hella')
     const data = axios.get(`${import.meta.env.VITE_FETCH_URL || "http://localhost:3000/"}search`, {
     params: {
@@ -76,7 +74,7 @@
     <>
     <div className="font-[SF_UI_Display] flex flex-col">
     <main className="h-screen w-full flex flex-col text-sm">
-    <Header objects={container}/>
+    <Header objects={JSON.parse(localStorage.getItem("container"))}/>
     <section
     className="gap-12 flex flex-col justify-center flex-1"
     id="hero"
@@ -210,13 +208,13 @@
     })}
     </div>
     </section>
-    <div  style={{ boxShadow: "0px 3px 5px #0000001e" }} className= {`lg:aspect-7/4 aspect-6/4 bg-white border-1 border-[#cccccc] rounded-2xl h-60 lg:h-60 bottom-0 right-0 mr-5 mb-5 overflow-hidden fixed card-element ${selectState ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-0 pointer-events-none'}`}>
+    <div  style={{ boxShadow: "0px 3px 5px #0000001e" }} className= {`bg-white border-1 border-[#cccccc] rounded-2xl max-h-50 lg:h-60 bottom-0 right-0 mr-5 mb-5 overflow-hidden fixed card-element ${selectState ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-0 pointer-events-none'}`}>
     <div className="flex flex-col h-full w-full">
-        <div id="header" className="h-10 bg-[#E73F1E] w-full flex justify-end items-center gap-2 px-4">
+        <div id="header" className="h-5 bg-[#E73F1E] w-full flex justify-end items-center gap-2 px-4">
             <div onClick={() => setSelectState(false)} className="h-1 w-5 bg-white"></div>
         </div>
         <div id="rest" className=" flex flex-1 flex-col h-full">
-            <div className="flex h-full w-full" id="top">
+            <div className="flex py-4 h-full w-full" id="top">
                 <div className="left p-10 " dangerouslySetInnerHTML={{ __html: selectedIcon }}>
                 </div>
                 <div className="right  flex flex-col justify-center h-full w-full">
