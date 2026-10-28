@@ -30,8 +30,10 @@ export default function IconResults({result=[]}){
           }}
         >
           {items.map((result) => {
+            const name = result?.persistentName ?? "icon";
+            const svg = result?.svg ?? "";
             return (
-              <div key={result.persistentName} className="rounded-md">
+              <div key={name} className="rounded-md">
                 <div
                   className=""
                   style={{
@@ -44,17 +46,15 @@ export default function IconResults({result=[]}){
                 >
                   <div
                     onClick={() => {
-                      setSelectedName(result.persistentName);
-                      setSelectedIcon(result.svg);
+                      setSelectedName(name);
+                      setSelectedIcon(svg);
                       setSelectState(true);
                     }}
                     className="h-3/10 hover:scale-110 transition-all cursor-pointer w-3/10 flex justify-center items-center"
-                    dangerouslySetInnerHTML={{ __html: result.svg }}
+                    dangerouslySetInnerHTML={{ __html: svg }}
                   />
                   <p className="text-gray-500 mt-2 text-sm font-light">
-                    {result.persistentName.length <= 6
-                      ? result.persistentName
-                      : result.persistentName.slice(0, 6) + "..."}
+                    {name.length <= 6 ? name : name.slice(0, 6) + "..."}
                   </p>
                 </div>
               </div>
