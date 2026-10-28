@@ -6,6 +6,8 @@ export default function IconResults({result=[]}){
           const [selectedIcon, setSelectedIcon] = useState("");
           const [selectState, setSelectState] = useState(false);
 
+  const items = Array.isArray(result) ? result : [];
+
   function addToContainer() {
     if (!selectedName || !selectedIcon) return;
     try {
@@ -27,7 +29,7 @@ export default function IconResults({result=[]}){
             alignItems: "top",
           }}
         >
-          {result.map((result) => {
+          {items.map((result) => {
             return (
               <div key={result.persistentName} className="rounded-md">
                 <div

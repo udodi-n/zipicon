@@ -64,8 +64,12 @@ return () => displayIcons();
         },
       )
       .then((res) => {
-        setResults(res.data);
-        console.log(res.data);
+        const raw = res.data;
+        const items = Array.isArray(raw)
+          ? raw
+          : raw && (raw.results || raw.data || raw.icons || []);
+        setResults(items);
+        console.log("search results:", items);
       })
       .catch((err) => console.error(err));
   }
