@@ -5,7 +5,18 @@ export default function IconResults({result=[]}){
           const [selectedName, setSelectedName] = useState("");
           const [selectedIcon, setSelectedIcon] = useState("");
           const [selectState, setSelectState] = useState(false);
-  
+
+  function addToContainer() {
+    if (!selectedName || !selectedIcon) return;
+    try {
+      const existing = JSON.parse(localStorage.getItem("container")) || {};
+      const next = { ...existing, [selectedName]: selectedIcon };
+      localStorage.setItem("container", JSON.stringify(next));
+    } catch (e) {
+      console.error("addToContainer", e);
+    }
+  }
+   
   return (
     <>
       <div
@@ -47,7 +58,7 @@ export default function IconResults({result=[]}){
               </div>
             );
           })}
-            <IconCard selectState={selectState} selectedIcon={selectedIcon} selectedName={selectedName}/>
+            <IconCard selectState={selectState} selectedIcon={selectedIcon} selectedName={selectedName} action={addToContainer}/>
         </div>
     </>
   )

@@ -113,6 +113,9 @@ return () => displayIcons();
           />
           {/* search input ends here */}
         </form>
+
+        {/* search results grid */}
+        <IconResults result={results} />
       </section>
     </>
   );
